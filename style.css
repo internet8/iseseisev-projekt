@@ -1,0 +1,99 @@
+*{
+    font-family: WhimsyTT;
+    background-color: rgb(32, 0, 116);
+    color: rgb(225, 230, 0);
+}
+
+#main {
+    overflow: auto;
+}
+
+#game {
+    width: 35vw;
+    height: 35vw;
+    border: solid black 0.25vw;
+    position: absolute;
+    left: 10px;
+    background: url('assets/board.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#info {
+    width: 60.2vw;
+    height: 35vw;
+    border: solid black 0.25vw;
+    position: absolute;
+    left: 37vw;
+}
+
+#remainingPieces {
+    width: 97vw;
+    height: 23vh;
+    border: solid black 0.25vw;
+    position: absolute;
+    top: 37vw;
+}
+
+#chat {
+    width: 41.7vw;
+    height: 33.5vw;
+    border: solid black 0.25vw;
+    position: absolute;
+    right: 0.5vw;
+    top: 0.5vw;
+}
+
+#currentPiece {
+    width: 16vw;
+    height: 16vw;
+    border: solid black 0.25vw;
+    position: absolute;
+    left: 0.5vw;
+    bottom: 0.5vw;
+}
+
+#playerList {
+    width: 16vw;
+    height: 16vw;
+    border: solid black 0.25vw;
+    position: absolute;
+    left: 0.5vw;
+    top: 0.5vw;
+}
+
+textarea {
+    width: 90%;
+    margin-left: 5%;
+    height: 70%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    font-family: arial;
+    color: black;
+}
+
+input {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    height: 10%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    font-family: arial;
+    color: black;
+}
+
+@font-face {
+    font-family: 'WhimsyTT';
+    src: url('assets/WhimsyTT.ttf');
+}
