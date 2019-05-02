@@ -1,4 +1,4 @@
-*{
+body {
     font-family: WhimsyTT;
     background-color: rgb(32, 0, 116);
     color: rgb(225, 230, 0);
@@ -14,9 +14,9 @@
     border: solid black 0.25vw;
     position: absolute;
     left: 10px;
-    background: url('assets/board.png');
+    /* background: url('assets/board.png');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
 }
 
 #info {
@@ -36,7 +36,7 @@
 }
 
 #chat {
-    width: 41.7vw;
+    width: 21.7vw;
     height: 33.5vw;
     border: solid black 0.25vw;
     position: absolute;
@@ -55,6 +55,15 @@
 
 #playerList {
     width: 16vw;
+    height: 33.5vw;
+    border: solid black 0.25vw;
+    position: absolute;
+    left: 19vw;
+    top: 0.5vw;
+}
+
+#changeName {
+    width: 16vw;
     height: 16vw;
     border: solid black 0.25vw;
     position: absolute;
@@ -62,10 +71,18 @@
     top: 0.5vw;
 }
 
+#gameName {
+    position: absolute;
+    transform: rotate(-25deg);
+    left: 1.5vw;
+    font-size: 2vw;
+    text-align: center;
+}
+
 textarea {
     width: 90%;
     margin-left: 5%;
-    height: 70%;
+    height: 80%;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -81,7 +98,7 @@ input {
     width: 90%;
     margin-left: 5%;
     margin-top: 5%;
-    height: 10%;
+    height: 5%;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -91,6 +108,27 @@ input {
     resize: none;
     font-family: arial;
     color: black;
+}
+
+button {
+    font-family: WhimsyTT;
+    display: block;
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 50%;
+    height: 30px;
+    background-color: rgb(225, 230, 0);
+    border: solid black 1px;
+    border-radius: 20px;
+}
+
+img {
+    position: absolute;
+    opacity: 0.8;
+}
+
+img:hover {
+    opacity: 1;
 }
 
 @font-face {
