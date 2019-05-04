@@ -5,7 +5,7 @@
     if (isset($_POST["createGame"])) {
         $hash = uniqid();
         createGame($hash, $_POST["playerCount"]);
-        $gameUrl .= "Send this url to your friends:<br> www.kentpirma.eu/takeiteasy/game.php?gameHash=" .$hash;
+        $gameUrl .= "Send this url to your friends:<br> https://www.kentpirma.eu/takeiteasy/game.php?gameHash=" .$hash;
     }
  ?>
 <!DOCTYPE html>

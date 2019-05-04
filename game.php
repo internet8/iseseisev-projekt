@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="server.js"></script>
+    <script src="game.js"></script>
+
+    </script>
     <title>TakeItEasy!</title>
 </head>
 <body>
@@ -50,12 +55,12 @@
                 <img src="assets/123.png" style="margin-left: 12%;" width="75%">
             </div>
             <div id="playerList">
-                <p style="text-align: center; font-size: 0.8vw;">PLAYERS</p>
+                <p style="text-align: center; font-size: 0.8vw;">PLAYERS:</p>
             </div>
             <div id="changeName">
                 <p style="text-align: center; font-size: 0.8vw;">SET YOUR NAME</p>
-                <input type="text" maxlength="750">
-                <button class="button">SET</button>
+                <input id="playerName" type="text" maxlength="20">
+                <button id="playerNameButton" class="button" onclick="setName();">SET</button>
             </div>
         </div>
         <div id="remainingPieces">
