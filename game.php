@@ -20,29 +20,29 @@
         <div id="game">
             <p id="gameName">TAKE IT <br> EASY</p>
             <!-- first column -->
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(3vw, 8vw);">
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(3vw, 14.3vw);">
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(3vw, 20.6vw);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(3vw, 8vw);" id="p1" onclick="placePiece(event);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(3vw, 14.3vw);" id="p2" onclick="placePiece(event);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(3vw, 20.6vw);" id="p3" onclick="placePiece(event);">
             <!-- second column -->
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(8.4vw, 4.85vw);">
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(8.4vw, 11.15vw);">
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(8.4vw, 17.45vw);">
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(8.4vw, 23.75vw);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(8.4vw, 4.85vw);" id="p4" onclick="placePiece(event);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(8.4vw, 11.15vw);" id="p5" onclick="placePiece(event);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(8.4vw, 17.45vw);" id="p6" onclick="placePiece(event);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(8.4vw, 23.75vw);" id="p7" onclick="placePiece(event);">
             <!-- third column -->
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(13.8vw, 1.7vw);">
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(13.8vw, 8vw);">
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(13.8vw, 14.3vw);">
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(13.8vw, 20.6vw);">
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(13.8vw, 26.9vw);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(13.8vw, 1.7vw);" id="p8" onclick="placePiece(event);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(13.8vw, 8vw);" id="p9" onclick="placePiece(event);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(13.8vw, 14.3vw);" id="p10" onclick="placePiece(event);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(13.8vw, 20.6vw);" id="p11" onclick="placePiece(event);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(13.8vw, 26.9vw);" id="p12" onclick="placePiece(event);">
             <!-- fourth column -->
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(19.2vw, 4.85vw);">
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(19.2vw, 11.15vw);">
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(19.2vw, 17.45vw);">
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(19.2vw, 23.75vw);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(19.2vw, 4.85vw);" id="p13" onclick="placePiece(event);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(19.2vw, 11.15vw);" id="p14" onclick="placePiece(event);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(19.2vw, 17.45vw);" id="p15" onclick="placePiece(event);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(19.2vw, 23.75vw);" id="p16" onclick="placePiece(event);">
             <!-- fifth column -->
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(24.6vw, 8vw);">
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(24.6vw, 14.3vw);">
-            <img src="assets/empty.png" width="21.3%" style="transform: translate(24.6vw, 20.6vw);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(24.6vw, 8vw);" id="p17" onclick="placePiece(event);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(24.6vw, 14.3vw);" id="p18" onclick="placePiece(event);">
+            <img src="assets/empty.png" width="21.3%" style="transform: translate(24.6vw, 20.6vw);" id="p19" onclick="placePiece(event);">
         </div>
         <div id="info">
             <div id="chat">
@@ -52,7 +52,7 @@
             </div>
             <div id="currentPiece">
                 <p style="text-align: center; font-size: 0.8vw;">CURRENT PIECE</p>
-                <img src="assets/123.png" style="margin-left: 12%;" width="75%">
+                <img src="assets/empty.png" style="margin-left: 12%;" width="75%">
             </div>
             <div id="playerList">
                 <p style="text-align: center; font-size: 0.8vw;">PLAYERS:</p>
@@ -65,6 +65,14 @@
         </div>
         <div id="remainingPieces">
             <p style="margin-left: 10px; font-size: 0.8vw;">REMAINING PIECES:</p>
+            <?php
+            $files = scandir('assets/');
+            foreach($files as $file) {
+                if (strlen(basename($file)) == 7) {
+                    echo '<img src="assets/' .basename($file) .'" width="5%" style="position: relative;" id="' .substr(basename($file), 0, 3) .'">';
+                }
+            }
+            ?>
         </div>
     </div>
 </body>

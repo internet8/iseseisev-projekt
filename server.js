@@ -2,6 +2,8 @@ let gameHash = "";
 let playerName = "";
 let playerHash = "";
 let chatText = "";
+let recentPiece = "empty";
+let placedPiece = "empty";
 
 $( document ).ready(function() {
     gameHash = getGameHash();
@@ -10,6 +12,9 @@ $( document ).ready(function() {
     }, 1000);
     setInterval(function () {
         readMessages();
+    }, 1000);
+    setInterval(function () {
+        getPiece();
     }, 1000);
 });
 
@@ -103,6 +108,26 @@ function readMessages () {
             chat.html(response);
             if (!(chat.is(":hover"))) {
                 chat.scrollTop(chat[0].scrollHeight);
+            }
+        }
+    });
+}
+
+function getPiece () {
+    // get all players
+    $.ajax({
+        url: 'ajaxReceiver.php',
+        type: 'POST',
+        data: {
+            gameHashPiece: gameHash,
+        },
+        success: function (response) {
+            if (response.length == 3 && response != recentPiece) {
+                recentPiece = response;
+                let html = '<p style="text-align: center; font-size: 0.8vw;">CURRENT PIECE</p><img src="assets/' + response + '.png" style="margin-left: 12%;" width="75%">';
+                $('#currentPiece').html(html);
+                let id = "#" + response;
+                $(id).remove();
             }
         }
     });

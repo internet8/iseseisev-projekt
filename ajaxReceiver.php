@@ -16,4 +16,8 @@
     if (isset($_POST["gameHashMessages"])) {
         echo getAllMessages($_POST["gameHashMessages"]);
     }
+
+    if (isset($_POST["gameHashPiece"])) {
+        echo getFirstPiece($_POST["gameHashPiece"]);
+    }
 ?>
