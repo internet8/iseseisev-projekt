@@ -11,6 +11,43 @@ $database = "u169689266_easy";
     }
 
     // database functions
+    function updateScore ($score, $gameHash, $playerHash) {
+        $notice = "";
+        $mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+        $stmt = $mysqli->prepare("UPDATE players SET score=? WHERE gameHash=? AND playerHash=?");
+        echo $mysqli->error;
+        $stmt->bind_param("iss", $score, $gameHash, $playerHash);
+        if ($stmt->execute()){
+            $notice = 'score updated';
+        } else {
+            $notice = "error: " .$stmt->error;
+        }
+        $stmt->close();
+        $mysqli->close();
+        return $notice;
+    }
+
+    function addTurn ($gameHash) {
+        $notice = "";
+        $mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+        $stmt = $mysqli->prepare("INSERT INTO turns (gameHash) VALUES(?)");
+        echo $mysqli->error;
+        $stmt->bind_param("s", $gameHash);
+        if ($stmt->execute()){
+            $notice = 'turn added';
+        } else {
+            $notice = "error: " .$stmt->error;
+        }
+        $stmt->close();
+        $mysqli->close();
+        $turnCount = intval(getTurnCount($gameHash));
+        $playerCount = intval(getPlayerCount($gameHash));
+        if ($turnCount % $playerCount == 0 && $turnCount != 0) {
+            deletePiece($gameHash);
+        }
+        return $notice;
+    }
+
     function getFirstPiece ($gameHash) {
         $notice = '';
         $mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
@@ -27,7 +64,15 @@ $database = "u169689266_easy";
     }
 
     function deletePiece ($gameHash) {
-
+        $notice = '';
+        $mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+        $stmt = $mysqli->prepare("DELETE FROM pieces WHERE gameHash = ? LIMIT 1");
+        echo $mysqli->error;
+        $stmt->bind_param("s", $gameHash);
+        $stmt->execute();
+        $stmt->close();
+        $mysqli->close();
+        return $notice;
     }
 
     function addPiece ($piece, $gameHash) {
@@ -96,6 +141,36 @@ $database = "u169689266_easy";
         return $notice;
     }
 
+    function getPieceCount ($gameHash) {
+        $result;
+        $mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+        $stmt = $mysqli->prepare("SELECT COUNT(*) AS pieces FROM pieces WHERE gameHash = ?");
+        echo $mysqli->error;
+        $stmt->bind_param("s", $gameHash);
+        $stmt->bind_result($count);
+        $stmt->execute();
+        $stmt->fetch();
+        $result = $count;
+        $stmt->close();
+        $mysqli->close();
+        return $result;
+    }
+
+    function getTurnCount ($gameHash) {
+        $result;
+        $mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+        $stmt = $mysqli->prepare("SELECT COUNT(*) AS turns FROM turns WHERE gameHash = ?");
+        echo $mysqli->error;
+        $stmt->bind_param("s", $gameHash);
+        $stmt->bind_result($count);
+        $stmt->execute();
+        $stmt->fetch();
+        $result = $count;
+        $stmt->close();
+        $mysqli->close();
+        return $result;
+    }
+
     function getPlayerCount ($gameHash) {
         $result;
         $mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
@@ -141,6 +216,7 @@ $database = "u169689266_easy";
             } else {
                 $notice = "error: " .$stmt->error;
             }
+            $_SESSION["playerHash"] = $playerHash;
             $stmt->close();
             $mysqli->close();
         }

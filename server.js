@@ -1,9 +1,9 @@
 let gameHash = "";
 let playerName = "";
 let playerHash = "";
-let chatText = "";
 let recentPiece = "empty";
 let placedPiece = "empty";
+let gameFinished = false;
 
 $( document ).ready(function() {
     gameHash = getGameHash();
@@ -15,6 +15,9 @@ $( document ).ready(function() {
     }, 1000);
     setInterval(function () {
         getPiece();
+    }, 1000);
+    setInterval(function () {
+        getPieceCount();
     }, 1000);
 });
 
@@ -49,6 +52,37 @@ function sendMessage (message) {
             gameHashSM: gameHash,
             playerHashSM: playerHash,
             message: message
+        },
+        success: function(response) {
+            console.log(response);
+        }
+    });
+}
+
+function addTurn () {
+    // add turn to database
+    $.ajax({
+        url: 'ajaxReceiver.php',
+        type: 'POST',
+        data: {
+            gameHashTurn: gameHash,
+            playerHashTurn: playerHash
+        },
+        success: function(response) {
+            console.log(response);
+        }
+    });
+}
+
+function updateScore () {
+    // add turn to database
+    $.ajax({
+        url: 'ajaxReceiver.php',
+        type: 'POST',
+        data: {
+            gameHashScore: gameHash,
+            playerHashScore: playerHash,
+            score: points
         },
         success: function(response) {
             console.log(response);
@@ -115,19 +149,38 @@ function readMessages () {
 
 function getPiece () {
     // get all players
+    if (gameFinished == false) {
+        $.ajax({
+            url: 'ajaxReceiver.php',
+            type: 'POST',
+            data: {
+                gameHashPiece: gameHash,
+                playerHashPiece: playerHash
+            },
+            success: function (response) {
+                if (response.length == 3 && response != recentPiece) {
+                    recentPiece = response;
+                    let html = '<p style="text-align: center; font-size: 0.8vw;">CURRENT PIECE</p><img src="assets/' + response + '.png" style="margin-left: 12%;" width="75%">';
+                    $('#currentPiece').html(html);
+                    let id = "#" + response;
+                    $(id).remove();
+                }
+            }
+        });
+    }
+}
+
+function getPieceCount () {
+    // get all players
     $.ajax({
         url: 'ajaxReceiver.php',
         type: 'POST',
         data: {
-            gameHashPiece: gameHash,
+            gameHashPieceCount: gameHash
         },
         success: function (response) {
-            if (response.length == 3 && response != recentPiece) {
-                recentPiece = response;
-                let html = '<p style="text-align: center; font-size: 0.8vw;">CURRENT PIECE</p><img src="assets/' + response + '.png" style="margin-left: 12%;" width="75%">';
-                $('#currentPiece').html(html);
-                let id = "#" + response;
-                $(id).remove();
+            if (response.toString() == "8") {
+                gameFinished = true;
             }
         }
     });

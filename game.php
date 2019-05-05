@@ -1,4 +1,5 @@
 <?php
+    session_start();
     //echo $_GET["gameHash"];
 ?>
 <!DOCTYPE html>

@@ -20,4 +20,16 @@
     if (isset($_POST["gameHashPiece"])) {
         echo getFirstPiece($_POST["gameHashPiece"]);
     }
+
+    if (isset($_POST["gameHashTurn"])) {
+        addTurn($_POST["gameHashTurn"]);
+    }
+
+    if (isset($_POST["gameHashPieceCount"])) {
+        echo getPieceCount($_POST["gameHashPieceCount"]);
+    }
+
+    if (isset($_POST["gameHashTurn"])) {
+        updateScore($_POST["gameHashTurn"], $_POST["score"], $_POST["playerHashTurn"]);
+    }
 ?>
