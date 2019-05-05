@@ -47,8 +47,8 @@
         <div id="info">
             <div id="chat">
                 <p style="text-align: center; font-size: 0.8vw;">CHAT</p>
-                <textarea readonly></textarea>
-                <input type="text" maxlength="750">
+                <div id="chatArea"></div>
+                <input type="text" maxlength="750" class="chat" disabled>
             </div>
             <div id="currentPiece">
                 <p style="text-align: center; font-size: 0.8vw;">CURRENT PIECE</p>
