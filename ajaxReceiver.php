@@ -29,7 +29,7 @@
         echo getPieceCount($_POST["gameHashPieceCount"]);
     }
 
-    if (isset($_POST["gameHashTurn"])) {
-        updateScore($_POST["gameHashTurn"], $_POST["score"], $_POST["playerHashTurn"]);
+    if (isset($_POST["score"])) {
+        updateScore($_POST["score"], $_POST["gameHashScore"], $_POST["playerHashScore"]);
     }
 ?>

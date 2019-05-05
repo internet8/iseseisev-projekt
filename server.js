@@ -15,13 +15,14 @@ $( document ).ready(function() {
     }, 1000);
     setInterval(function () {
         getPiece();
-    }, 1000);
+    }, 3000);
     setInterval(function () {
         getPieceCount();
-    }, 1000);
+    }, 3000);
 });
 
 function setName () {
+    $("#playerNameButton").prop("disabled", true);
     playerName = $("#playerName").val();
     playerHash = Math.random().toString(36).substring(2);
     // add player to database
@@ -35,7 +36,6 @@ function setName () {
         },
         success: function(response) {
             console.log(response);
-            $("#playerNameButton").prop("disabled", true);
             $(".chat").prop("disabled", false);
         }
         //error: function(error){ console.log(error.responseText);}
@@ -179,6 +179,7 @@ function getPieceCount () {
             gameHashPieceCount: gameHash
         },
         success: function (response) {
+            console.log(response);
             if (response.toString() == "8") {
                 gameFinished = true;
             }

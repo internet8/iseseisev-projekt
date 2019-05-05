@@ -49,7 +49,7 @@ function calculateScore()
     {
         let score = 0;
         //Up to down
-        if (myBoard[0].piece.substring(0, 1) == (myBoard[2].piece.substring(0, 1)) && myBoard[1].piece.substring(0, 1) == (myBoard[3].piece.substring(0, 1)))
+        if (myBoard[0].piece.substring(0, 1) == (myBoard[2].piece.substring(0, 1)) && myBoard[0].piece.substring(0, 1) == (myBoard[1].piece.substring(0, 1)))
         {
             if (!isNaN((myBoard[0].piece.substring(0, 1)))) {
                 score += parseInt(myBoard[0].piece.substring(0, 1)) * 3;
