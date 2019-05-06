@@ -1,6 +1,9 @@
 <?php
     session_start();
-    //require("serverFunctions.php");
+    require("serverFunctions.php");
+    if (getMaxPlayers($_GET["gameHash"]) == getPlayerCount($_GET["gameHash"])) {
+        header("Location: index.php");
+    }
     //echo $_GET["gameHash"];
 ?>
 <!DOCTYPE html>

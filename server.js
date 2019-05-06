@@ -100,7 +100,6 @@ function getGameHash () {
         return "";
 }
 
-
 // sending message
 jQuery(document).on('keydown', 'input.chat', function(e) {
     if(e.which === 13) {
@@ -113,6 +112,22 @@ jQuery(document).on('keydown', 'input.chat', function(e) {
         return false;
     }
 });
+
+function sendEndMessage () {
+    $.ajax({
+        url: 'ajaxReceiver.php',
+        type: 'POST',
+        data: {
+            playerNameSM: "GameGod",
+            gameHashSM: gameHash,
+            playerHashSM: "god",
+            message: "The game has ended! Go to the main menu to create a new one."
+        },
+        success: function(response) {
+            console.log(response);
+        }
+    });
+}
 
 // interval functions
 function getPlayers () {
@@ -172,17 +187,20 @@ function getPiece () {
 
 function getPieceCount () {
     // get all players
-    $.ajax({
-        url: 'ajaxReceiver.php',
-        type: 'POST',
-        data: {
-            gameHashPieceCount: gameHash
-        },
-        success: function (response) {
-            console.log(response);
-            if (response.toString() == "8") {
-                gameFinished = true;
+    if (gameFinished == false) {
+        $.ajax({
+            url: 'ajaxReceiver.php',
+            type: 'POST',
+            data: {
+                gameHashPieceCount: gameHash
+            },
+            success: function (response) {
+                console.log(response);
+                if (response.toString() == "8") {
+                    gameFinished = true;
+                    sendEndMessage();
+                }
             }
-        }
-    });
+        });
+    }
 }

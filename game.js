@@ -45,6 +45,17 @@ function checkIfEmpty (name) {
     return false;
 }
 
+function resetGame () {
+    let gameHash = "";
+    let playerName = "";
+    let playerHash = "";
+    let recentPiece = "empty";
+    let placedPiece = "empty";
+    let gameFinished = false;
+    let myBoard = [];
+    let points = 0;
+}
+
 function calculateScore()
     {
         let score = 0;
