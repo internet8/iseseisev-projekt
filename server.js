@@ -1,7 +1,9 @@
 let gameHash = "";
 let playerName = "";
 let playerHash = "";
-let chatText = "";
+let recentPiece = "empty";
+let placedPiece = "empty";
+let gameFinished = false;
 
 $( document ).ready(function() {
     gameHash = getGameHash();
@@ -11,9 +13,16 @@ $( document ).ready(function() {
     setInterval(function () {
         readMessages();
     }, 1000);
+    setInterval(function () {
+        getPiece();
+    }, 3000);
+    setInterval(function () {
+        getPieceCount();
+    }, 3000);
 });
 
 function setName () {
+    $("#playerNameButton").prop("disabled", true);
     playerName = $("#playerName").val();
     playerHash = Math.random().toString(36).substring(2);
     // add player to database
@@ -27,7 +36,6 @@ function setName () {
         },
         success: function(response) {
             console.log(response);
-            $("#playerNameButton").prop("disabled", true);
             $(".chat").prop("disabled", false);
         }
         //error: function(error){ console.log(error.responseText);}
@@ -51,6 +59,37 @@ function sendMessage (message) {
     });
 }
 
+function addTurn () {
+    // add turn to database
+    $.ajax({
+        url: 'ajaxReceiver.php',
+        type: 'POST',
+        data: {
+            gameHashTurn: gameHash,
+            playerHashTurn: playerHash
+        },
+        success: function(response) {
+            console.log(response);
+        }
+    });
+}
+
+function updateScore () {
+    // add turn to database
+    $.ajax({
+        url: 'ajaxReceiver.php',
+        type: 'POST',
+        data: {
+            gameHashScore: gameHash,
+            playerHashScore: playerHash,
+            score: points
+        },
+        success: function(response) {
+            console.log(response);
+        }
+    });
+}
+
 function getGameHash () {
     let query = window.location.search.substring(1);
         let vars = query.split("&");
@@ -60,7 +99,6 @@ function getGameHash () {
         }
         return "";
 }
-
 
 // sending message
 jQuery(document).on('keydown', 'input.chat', function(e) {
@@ -74,6 +112,10 @@ jQuery(document).on('keydown', 'input.chat', function(e) {
         return false;
     }
 });
+
+function sendEndMessage () {
+    $('#endMEssage').html("The game has ended! Go to the main menu to create a new one.");
+}
 
 // interval functions
 function getPlayers () {
@@ -106,4 +148,47 @@ function readMessages () {
             }
         }
     });
+}
+
+function getPiece () {
+    // get all players
+    if (gameFinished == false) {
+        $.ajax({
+            url: 'ajaxReceiver.php',
+            type: 'POST',
+            data: {
+                gameHashPiece: gameHash,
+                playerHashPiece: playerHash
+            },
+            success: function (response) {
+                if (response.length == 3 && response != recentPiece) {
+                    recentPiece = response;
+                    let html = '<p style="text-align: center; font-size: 0.8vw;">CURRENT PIECE</p><img src="assets/' + response + '.png" style="margin-left: 12%;" width="75%">';
+                    $('#currentPiece').html(html);
+                    let id = "#" + response;
+                    $(id).remove();
+                }
+            }
+        });
+    }
+}
+
+function getPieceCount () {
+    // get all players
+    if (gameFinished == false) {
+        $.ajax({
+            url: 'ajaxReceiver.php',
+            type: 'POST',
+            data: {
+                gameHashPieceCount: gameHash
+            },
+            success: function (response) {
+                console.log(response);
+                if (response.toString() == "8") {
+                    gameFinished = true;
+                    sendEndMessage();
+                }
+            }
+        });
+    }
 }

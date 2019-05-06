@@ -16,4 +16,20 @@
     if (isset($_POST["gameHashMessages"])) {
         echo getAllMessages($_POST["gameHashMessages"]);
     }
+
+    if (isset($_POST["gameHashPiece"])) {
+        echo getFirstPiece($_POST["gameHashPiece"]);
+    }
+
+    if (isset($_POST["gameHashTurn"])) {
+        addTurn($_POST["gameHashTurn"]);
+    }
+
+    if (isset($_POST["gameHashPieceCount"])) {
+        echo getPieceCount($_POST["gameHashPieceCount"]);
+    }
+
+    if (isset($_POST["score"])) {
+        updateScore($_POST["score"], $_POST["gameHashScore"], $_POST["playerHashScore"]);
+    }
 ?>
