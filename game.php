@@ -82,13 +82,13 @@
 
     </div>
     <div style="margin-left: 1%; font-size: 1vw;" id="endMessage"></div>
-    <audio class="place" controls preload="none">
+    <audio class="place" controls preload="none" hidden>
         <source src="assets/place.wav" type="audio/wav">
     </audio>
-    <audio class="newPiece" controls preload="none">
+    <audio class="newPiece" controls preload="none" hidden>
         <source src="assets/newPiece.mp3" type="audio/mpeg">
     </audio>
-    <audio class="place" controls preload="none">
+    <audio class="endGame" controls preload="none" hidden>
         <source src="assets/endGame.wav" type="audio/wav">
     </audio>
 </body>

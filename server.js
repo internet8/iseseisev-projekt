@@ -115,7 +115,7 @@ jQuery(document).on('keydown', 'input.chat', function(e) {
 
 function sendEndMessage () {
     $('#endMessage').html("The game has ended! Go to the main menu to create a new one.");
-    $(".endGame").trigger('load');
+    $(".endGame").trigger('play');
 }
 
 // interval functions
@@ -168,7 +168,7 @@ function getPiece () {
                     $('#currentPiece').html(html);
                     let id = "#" + response;
                     $(id).remove();
-                    $(".newPiece").trigger('load');
+                    $(".newPiece").trigger('play');
                 }
             }
         });

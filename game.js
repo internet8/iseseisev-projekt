@@ -23,7 +23,7 @@ function placePiece (e) {
         $("#" + id).attr('src', "assets/" + recentPiece + ".png");
         updateBoard(id, placedPiece);
         points = calculateScore();
-        $(".place").trigger('load');
+        $(".place").trigger('play');
         addTurn();
         updateScore();
     }
