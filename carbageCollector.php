@@ -1,4 +1,4 @@
 <?php
     require("serverFunctions.php");
-    GetGames();
+    getGames();
 ?>

@@ -6,6 +6,9 @@ $( document ).ready(function() {
         let name = "p" + i.toString();
         myBoard.push(new place(name, "empty"));
     }
+    $(".place").trigger('load');
+    $(".newPiece").trigger('load');
+    $(".endGame").trigger('load');
 });
 
 function place (name, piece) {
@@ -20,6 +23,7 @@ function placePiece (e) {
         $("#" + id).attr('src', "assets/" + recentPiece + ".png");
         updateBoard(id, placedPiece);
         points = calculateScore();
+        $(".place").trigger('load');
         addTurn();
         updateScore();
     }
