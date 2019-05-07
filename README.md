@@ -6,4 +6,4 @@
 Mängu eesmärgiks on luua võimalikult palju sama värviga ridu. Iga rida peab algama ühest mängulaua otsast ning lõppema teises otsas. Vastavalt rea värvile antakse punkte. Näiteks kui saada 3 kollast (kollane annab 9 punkti) klotsi ritta, siis sntakse mängijale 27 punkti. 
 Võidab kõrgeima punktisummaga mängija. Kõikidel mängijatel on võimalik lehe paremas servas ka kasutada chati.</p>
 
-<img src="assets/game.png">
+<img src="game.png">
