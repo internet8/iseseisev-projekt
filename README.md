@@ -1,4 +1,4 @@
-<h1>Iseseisev projekt</h1>
+﻿<h1>Iseseisev projekt</h1>
 
 <p>Autorid: Kent Pirma ja Kaspar Rasmus Eelmaa</p>
 <p>Projektiks valisime lauamängust "Aeg maha" digitaalse versiooni tegemise. Mängu saab mängida veebis. Mängutoa tegemisel luuakse unikaalne url, kuhu peavad kõik mängijad sisenema. Kui kõik mängijad on oma nime sisestanud, hakkab mäng pihta. 
@@ -9,4 +9,4 @@ Võidab kõrgeima punktisummaga mängija. Kõikidel mängijatel on võimalik leh
 
 <p>Punktide arvestamise näide:</p>
 
-<img src="example.png">
+<img src="example.jpg">
