@@ -1,25 +1,9 @@
-# iseseisev-projekt
-Eesrakenduste arendamise iseseisva projekti lähteülesanne. 
+<h1>Iseseisev projekt</h1>
 
-Töö võib teha teha 1-4 liikmelise meeskonnana. Punkte jaotatakse vastavalt sellele, mitu liiget on meeskonnas:
-* 1 liige - max 60 punkti/inimene.
-* 2 liiget - max 40 punkti/inimene.
-* 3 liiget - max 30 punkti/inimene.
-* 4 liiget - max 20 punkti/inimene.
+<p>Autorid: Kent Pirma ja Kaspar Rasmus Eelmaa</p>
+<br>
+<p>Projektiks valisime lauamängust "Aeg maha" digitaalse versiooni tegemise. Mängu saab mängida veebis. Mängutoa tegemisel luuakse unikaalne url, kuhu peavad kõik mängijad sisenema. Kui kõik mängijad on oma nime sisestanud, hakkab mäng pihta. 
+Mängu eesmärgiks on luua võimalikult palju sama värviga ridu. Iga rida peab algama ühest mängulaua otsast ning lõppema teises otsas. Vastavalt rea värvile antakse punkte. Näiteks kui saada 3 kollast (kollane annab 9 punkti) klotsi ritta, siis sntakse mängijale 27 punkti. 
+Võidab kõrgeima punktisummaga mängija. Kõikidel mängijatel on võimalik lehe paremas servas ka kasutada chati.</p>
 
-**NB! Kui meeskonnas on rohkem kui üks liige, siis peab githubis selgelt välja tulema, kes millist osa tegi, et oleks võimalik hinnata iga meeskonnaliikme individuaalset panust.**
-
-README.md fail sisaldab:
-1. suurelt rakenduse nime;
-1. autorite nimesid;
-1. rakenduse funktsionaalsuse kirjeldust;
-1. ekraanitõmmist rakendusest.
-
-Rakenduse puhul peavad olema täidetud vähemalt järgmised nõuded:
-  * rakendus lahendab tõsist probleemi või on meelelahutusliku eesmärgiga; 
-  * rakenduse idee peab olema kooskõlastatud õppejõuga;
-  * töötab võrguta olekus;
-  * responsive disain;
-  * saab kasutada "add to Home screen" funktsionaalsust.
-
-Rakenduses võib kasutada teiste autorite koodi, kuid enda panus peab olema natuke enamat kui võrguta olekus töötamine. 
+<img src="assets/game.png">
