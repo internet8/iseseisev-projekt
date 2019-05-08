@@ -1,7 +1,10 @@
 body {
     font-family: WhimsyTT;
-    background-color: rgb(32, 0, 116);
-    color: rgb(225, 230, 0);
+    /*background-color: rgb(129, 140, 236);*/
+    background: url(assets/background.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    color: rgb(0, 0, 0);
 }
 
 #main {
@@ -11,7 +14,7 @@ body {
 #game {
     width: 35vw;
     height: 35vw;
-    border: solid black 0.25vw;
+   /* border: solid black 0.25vw; */
     position: absolute;
     left: 10px;
     /* background: url('assets/board.png');
@@ -22,7 +25,7 @@ body {
 #info {
     width: 60.2vw;
     height: 35vw;
-    border: solid black 0.25vw;
+    /* border: solid black 0.25vw; */
     position: absolute;
     left: 37vw;
 }
@@ -30,7 +33,9 @@ body {
 #remainingPieces {
     width: 97vw;
     height: 23vh;
-    border: solid black 0.25vw;
+    padding-left: 3px;
+   /* border: solid black 0.25vw; */
+    border-left: 0.5vh solid black;
     position: absolute;
     top: 37vw;
 }
@@ -39,15 +44,21 @@ body {
     width: 21.7vw;
     height: 33.5vw;
     border: solid black 0.25vw;
+    border-radius: 10px;
     position: absolute;
     right: 0.5vw;
     top: 0.5vw;
+}
+
+#chat:hover, #currentPiece:hover, #playerList:hover, #changeName:hover, #remainingPieces:hover, #game:hover, no {
+    background-color: rgb(236, 145, 102, 0.5);
 }
 
 #currentPiece {
     width: 16vw;
     height: 16vw;
     border: solid black 0.25vw;
+    border-radius: 10px;
     position: absolute;
     left: 0.5vw;
     bottom: 0.5vw;
@@ -57,6 +68,7 @@ body {
     width: 16vw;
     height: 33.5vw;
     border: solid black 0.25vw;
+    border-radius: 10px;
     position: absolute;
     left: 19vw;
     top: 0.5vw;
@@ -66,9 +78,11 @@ body {
     width: 16vw;
     height: 16vw;
     border: solid black 0.25vw;
+    border-radius: 10px;
     position: absolute;
     left: 0.5vw;
     top: 0.5vw;
+
 }
 
 #gameName {
@@ -108,10 +122,10 @@ body {
     display: block;
     margin: 0 auto;
     margin-top: 5%;
-    width: 50%;
+    width: 30%;
     height: 30px;
-    background-color: rgb(225, 230, 0);
-    border: solid black 1px;
+    background-color: rgb(81, 62, 250);
+    border: solid black 3px;
     border-radius: 20px;
 }
 
@@ -123,7 +137,7 @@ input:not(.button) {
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
     background-color: #f8f8f8;
     font-size: 16px;
     resize: none;
